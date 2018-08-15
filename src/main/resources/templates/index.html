@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="UTF-8"/>
-    <title>Title</title>
-</head>
+<head th:replace="base :: headstuff"></head>
 <body>
-<h2>Insecure Page</h2>
+<nav th:replace="base :: navbar2"></nav>
+<div class="container">
+    <div class="jumbotron">
+        <h1>Insecure Page</h1>
+        <p><a class="btn btn-primary btn-lg" href="/secure" role="button">Go to Secure Page</a>
+        </p>
+    </div>
 </div>
-<div th:replace="base :: navlinks2"></div>
-
-<div th:replace="base :: footer"></div>
+<nav th:replace="base :: footer"></nav>
+<th:block th:replace="base :: jslinks"></th:block>
 </body>
 </html>

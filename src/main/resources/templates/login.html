@@ -1,12 +1,10 @@
 
 <!DOCTYPE html>
 <html lang="en"  xmlns:th="www.thymeleaf.org" >
-<head>
-    <meta charset="UTF-8"/>
-    <title>Spring Security Example</title>
+<head th:replace="base :: headstuff">
 </head>
 <body>
-<div th:replace="base :: navlinks2"></div>
+<nav th:replace="base :: navbar2"></nav>
 <div th:if="${param.error}">Invalid username and password</div>
 <div th:if="${param.logout}">You have been logged out.</div>
 <form th:action="@{/login}" method="post">
@@ -14,6 +12,7 @@
     <div><label>Password: <input type="password" name="password"/></label></div>
     <div><input type="submit" value="Sign In"/></div>
 </form>
-<div th:replace="base :: footer"></div>
+<nav th:replace="base :: footer"></nav>
+<th:block th:replace="base :: jslinks"></th:block>
 </body>
 </html>

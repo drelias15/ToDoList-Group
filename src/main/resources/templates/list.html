@@ -1,11 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8"/>
-    <title>Title</title>
-</head>
+<head th:replace="base :: headstuff"></head>
 <body>
-<div th:replace="base :: navlinks"></div>
+<nav th:replace="base :: navbar"></nav>
 <table class="table">
 
     <tr>
@@ -21,6 +18,7 @@
         </td>
     </tr>
 </table>
-<div th:replace="base :: footer"></div>
+<nav th:replace="base :: footer"></nav>
+<th:block th:replace="base :: jslinks"></th:block>
 </body>
 </html>
