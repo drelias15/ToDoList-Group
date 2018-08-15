@@ -68,7 +68,11 @@ public class HomeController {
     }
 
     @RequestMapping("/secure")
-    public String searchByName(Model model) {
+    public String searchByName(Model model, HttpServletRequest request, Authentication authentication, Principal principal) {
+        Boolean isAdmin = request.isUserInRole("ADMIN");
+        Boolean isUser = request.isUserInRole("USER");
+        UserDetails userDetails = (UserDetails)
+                                    authentication.getPrincipal();
         String username = getUser().getUsername();
         model.addAttribute("tasks", taskRepository.findByUsername(username));
         return "list";

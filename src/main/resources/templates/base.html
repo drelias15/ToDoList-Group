@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org"
+  xmlns:sec="www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+<div sec:authorize="isAuthenticated()">
+<div th:fragment="navlinks">
+    <a href="/">Insecure Page</a> - <a href="/logout">Logout</a> - <a href="/secure">Secure Page</a>
+    <h1>Hi <span sec:authentication="name"> </span></h1>
+</div>
+</div>
+    <div sec:authorize="isAnonymous()">
+<div th:fragment="navlinks2">
+    <a href="/">Insecure Page</a> - <a href="/login">Login</a> - <a href="/secure">Secure Page</a>
+</div>
+    </div>
+<div th:fragment="footer">Copyright 2017
+</div>
+</body>
+</html>

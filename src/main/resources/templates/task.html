@@ -5,6 +5,7 @@
     <title>Title</title>
 </head>
 <body>
+<div th:replace="base :: navlinks"></div>
 <h1>Add Task</h1>
 <form  action="#" th:action="@{/process2}"
 th:object="${task}" method="post">
@@ -17,6 +18,7 @@ th:object="${task}" method="post">
     row="3"/><br />
 </strong></mark>
     <button type="submit" class="btn bnt-default">Submit</button>
+    <div th:replace="base :: footer"></div>
 </form>
 </body>
 </html>
