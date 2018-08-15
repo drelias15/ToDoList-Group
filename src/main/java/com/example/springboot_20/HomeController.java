@@ -56,14 +56,15 @@ public class HomeController {
         return "login";
     }
 
-//    @RequestMapping("/secure")
-//    public String secure() {
-//        return "list";
-//    }
-    @RequestMapping("/update/{username}")
-    public String userUpdate(@PathVariable("username") String username, Model model) {
-        model.addAttribute("task", taskRepository.findByUsername(username));
+    @RequestMapping("/update/{id}")
+    public String userUpdate(@PathVariable("id") long id, Model model) {
+        model.addAttribute("task", taskRepository.findById(id).get());
         return "task";
+    }
+    @RequestMapping("/delete/{id}")
+    public String delCourse(@PathVariable("id") long id){
+        taskRepository.deleteById(id);
+        return "redirect:/list";
     }
 
     @RequestMapping("/secure")
