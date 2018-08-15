@@ -64,7 +64,7 @@ public class HomeController {
     @RequestMapping("/delete/{id}")
     public String delCourse(@PathVariable("id") long id){
         taskRepository.deleteById(id);
-        return "redirect:/list";
+        return "redirect:/secure";
     }
 
     @RequestMapping("/secure")
@@ -82,8 +82,9 @@ public class HomeController {
     @PostMapping("/process2")
     public String processForm( @ModelAttribute Task task, BindingResult result, Model model)
     {
-        taskRepository.save(task);
         String username = getUser().getUsername();
+        task.setUsername(username);
+        taskRepository.save(task);
         model.addAttribute("tasks", taskRepository.findByUsername(username));
         return "list";
     }

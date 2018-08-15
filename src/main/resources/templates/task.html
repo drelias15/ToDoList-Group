@@ -9,13 +9,6 @@
 <form  action="#" th:action="@{/process2}"
 th:object="${task}" method="post">
     <input type="hidden" th:field="*{id}" />
-
-    Username<mark><strong>
-    <span th:if="${#fields.hasErrors('username')}"
-          th:errors="*{username}">Username Error</span>
-</strong></mark>
-    <input type="text" id="username" placeholder="username"
-           th:field="*{username}" /><br />
 <mark><strong>
     <span th:if="${#fields.hasErrors('description')}"
           th:errors="*{description}">Task Error</span>
